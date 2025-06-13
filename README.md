@@ -2,7 +2,8 @@
 
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
-[🐛 Issues](/ISSUE_TEMPLATES/bug_report.md)
+[🐛 Issues](/ISSUE_TEMPLATES/bug_report.md) 
+[️❓ Features](/ISSUE_TEMPLATES/feature_request.md)
 
 **Cross-platform debugging for Paper & BungeeCord plugins**
 
