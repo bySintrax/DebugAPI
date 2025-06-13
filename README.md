@@ -2,6 +2,8 @@
 
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
+[🐛 Issues](/ISSUE_TEMPLATES/bug_report.md)
+
 **Cross-platform debugging for Paper & BungeeCord plugins**
 
 ## 🚀 5-Sekunden-Start
@@ -39,4 +41,56 @@ Maven:
 - 🎨 **Farbige Logs**: Unterstützt Minecraft-Farbcodes
 - ⚙️ **Konfigurierbar**: `debug.yml` pro Plugin
 
-[🐛 Issues](/ISSUE_TEMPLATES/bug_report.md)
+## 📝 Nutzungsbeispiele
+Grundlegende Logging-Funktionen
+```java
+DebugManager debug = DebugAPI.getInstance().getDebugManager();
+
+// Einfache Logs
+debug.consoleLog(DebugManager.LogLevel.INFO, "Information");
+debug.consoleLog(DebugManager.LogLevel.WARN, "Warnung");
+debug.consoleLog(DebugManager.LogLevel.DEBUG, "Debug-Nachricht");
+debug.consoleLog(DebugManager.LogLevel.ERROR, "Fehlermeldung");
+
+// Spieler-spezifische Logs
+Player player = Bukkit.getPlayer("Sintrax");
+debug.playerLog(player, DebugManager.LogLevel.INFO, "Hallo Spieler!");
+
+// Mit Stacktrace (wenn aktiviert)
+debug.consoleLog(DebugManager.LogLevel.DEBUG, "Mit Stacktrace");
+```
+## Beispielausgaben:
+```java
+[INFO]      ->  §b[INFO] §fInformation
+[WARNING]   ->  §e[WARN] §fWarnung
+[CONFIG]    ->  §3[DEBUG] §fDebug-Nachricht §8| §7[Caller] ExampleClass.test():42
+[SEVERE]    ->  §c[ERROR] §fFehlermeldung
+```
+## Debug-Konfiguration:
+```java
+// Debug-Level für Spieler setzen
+debug.setPlayerDebugLevel(player, DebugManager.LogLevel.DEBUG);
+
+// Globalen Debug-Modus umschalten
+debug.setGlobalDebug(true);
+
+// Stacktrace-Ausgaben aktivieren
+debug.setStackTraceEnabled(true);
+
+// Konfiguration neu laden
+debug.reload();
+```
+
+## BungeeCord-spezifische Nutzung
+```java
+ProxiedPlayer player = ProxyServer.getInstance().getPlayer("Sintrax");
+debug.proxyPlayerLog(player, DebugManager.LogLevel.INFO, "Bungee-Nachricht");
+
+
+//Erweiterte Features
+// Logging mit automatischem Caller-Info (wenn stackTraceEnabled=true)
+debug.consoleLog(DebugManager.LogLevel.DEBUG, "Automatische Caller-Info");
+
+// Broadcast an alle Spieler mit entsprechendem Debug-Level
+debug.broadcast(DebugManager.LogLevel.INFO, "Wichtige Server-Info");
+```
