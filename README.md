@@ -39,4 +39,4 @@ Maven:
 - 🎨 **Farbige Logs**: Unterstützt Minecraft-Farbcodes
 - ⚙️ **Konfigurierbar**: `debug.yml` pro Plugin
 
-[🐛 Issues](ISSUE_TEMPLATE/bug_report.md)
+[🐛 Issues](/DebugAPI/blob/master/ISSUE_TEMPLATES/bug_report.md)
