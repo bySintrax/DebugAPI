@@ -1,15 +1,10 @@
 name: Java CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push, pull_request]
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -20,14 +15,13 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
-      - name: Build with Maven
+      - name: Build and Test
         run: mvn -B clean verify
 
-      - name: Upload Artifacts
+      - name: Archive Artifacts
         uses: actions/upload-artifact@v3
-        if: success()
         with:
-          name: debugapi-build
+          name: build-output
           path: |
             target/*.jar
             target/site/apidocs/**
