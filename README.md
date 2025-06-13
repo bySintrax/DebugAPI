@@ -17,18 +17,26 @@ DebugAPI.getInstance().getDebugManager()
 ## 📦 Installation
 Maven:
 ```xml
-<dependency>
-    <groupId>de.sintrax</groupId>
-    <artifactId>debugapi</artifactId>
-    <version>1.0.0</version>
-    <scope>provided</scope>
-</dependency>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>de.sintrax</groupId>
+        <artifactId>DebugAPI</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
 ```
 
 ## ✨ Kernfeatures
 - ✅ **Multi-Plattform**: Einheitliche API für Bukkit & Bungee
-- 📊 **Performance-Tracking**: `debugManager.startTracker("DB-Query")`
+- 📊 **Einheitliches Logging**: Verschiedene Log-Level und Klassenausgaben
 - 🎨 **Farbige Logs**: Unterstützt Minecraft-Farbcodes
 - ⚙️ **Konfigurierbar**: `debug.yml` pro Plugin
 
-[📚 Javadoc](https://bySintrax.github.io/DebugAPI/) | [🐛 Issues](.github/ISSUE_TEMPLATE/bug_report.md)
+[🐛 Issues](/ISSUE_TEMPLATE/bug_report.md)
