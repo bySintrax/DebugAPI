@@ -1,0 +1,12 @@
+name: DebugAPI
+version: '1.0'
+main: de.sintrax.debugAPI.api.DebugAPI
+api-version: '1.21'
+authors: [ Sintrax ]
+
+commands:
+  debug:
+    description: Debug-Befehle
+    usage: /debug <Befehl> [Optionen]
+    permission: debugapi.command.use
+    permission-message: §cKeine Berechtigung!
