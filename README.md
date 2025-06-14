@@ -29,9 +29,9 @@ Maven:
 
 <dependencies>
     <dependency>
-        <groupId>de.sintrax</groupId>
+        <groupId>com.github.bySintrax</groupId>
         <artifactId>DebugAPI</artifactId>
-        <version>1.0.0</version>
+        <version>v1.0.0</version>
     </dependency>
 </dependencies>
 ```
