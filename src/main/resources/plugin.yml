@@ -2,11 +2,63 @@ name: DebugAPI
 version: '1.0.0'
 main: de.sintrax.debugAPI.api.DebugAPI
 api-version: '1.21'
-authors: [ Sintrax ]
+authors: [Sintrax]
 
 commands:
   debug:
-    description: Debug-Befehle
+    description: Hauptbefehl für die DebugAPI
     usage: /debug <Befehl> [Optionen]
     permission: debugapi.command.use
     permission-message: §cKeine Berechtigung!
+
+permissions:
+  # Basisberechtigungen
+  debugapi.command.use:
+    description: Erlaubt die grundsätzliche Nutzung des Debug-Befehls
+    default: false
+
+  # Moderatoren-Berechtigungen
+  debugapi.group.mod:
+    description: Moderator-Berechtigungen
+    default: false
+    children:
+      debugapi.command.toggle: true
+      debugapi.command.level: true
+      debugapi.command.global: true
+
+  # Entwickler-Berechtigungen
+  debugapi.group.dev:
+    description: Entwickler-Berechtigungen
+    default: false
+    children:
+      debugapi.group.mod: true
+      debugapi.command.stacktrace: true
+      debugapi.command.console: true
+
+  # Admin-Berechtigungen
+  debugapi.group.admin:
+    description: Administrator-Berechtigungen
+    default: op
+    children:
+      debugapi.group.dev: true
+      debugapi.command.reload: true
+
+  # Einzelberechtigungen
+  debugapi.command.toggle:
+    description: Erlaubt das Umschalten des persönlichen Debug-Modus
+    default: false
+  debugapi.command.level:
+    description: Erlaubt das Ändern des persönlichen Debug-Levels
+    default: false
+  debugapi.command.global:
+    description: Erlaubt die Steuerung des globalen Debug-Modus
+    default: false
+  debugapi.command.stacktrace:
+    description: Erlaubt das Aktivieren/Deaktivieren von Stacktraces
+    default: false
+  debugapi.command.console:
+    description: Erlaubt das Ändern des Konsolen-Debug-Levels
+    default: false
+  debugapi.command.reload:
+    description: Erlaubt das Neuladen der Konfiguration
+    default: false

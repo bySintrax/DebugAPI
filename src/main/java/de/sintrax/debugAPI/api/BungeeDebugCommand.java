@@ -156,9 +156,9 @@ public class BungeeDebugCommand extends Command implements TabExecutor {
         debugManager.reload();
         if (sender instanceof ProxiedPlayer) {
             debugManager.proxyPlayerLog((ProxiedPlayer) sender,
-                    DebugManager.LogLevel.INFO, "Konfiguration wurde neu geladen");
+                    DebugManager.LogLevel.INFO, "Konfiguration debug.yml wurde neu geladen");
         } else {
-            debugManager.consoleLog(DebugManager.LogLevel.INFO, "Konfiguration wurde neu geladen");
+            debugManager.consoleLog(DebugManager.LogLevel.INFO, "Konfiguration debug.yml wurde neu geladen");
         }
     }
 
